@@ -1,0 +1,40 @@
+---
+# list of applications to install
+
+# homebrew applications
+applications:
+  - autojump
+  - git
+  - tree
+  - httpie
+  - curl
+  - wget
+  - kubectl
+  - kubernetes-helm
+  - zsh
+  - go
+
+# homebrew cask applications
+cask_applications:
+  - google-chrome
+  - slack
+  - iterm2
+  - caffeine
+  - docker
+  - minikube
+  - vagrant
+  - emacs
+  - neovim/neovim/neovim # https://github.com/neovim/neovim/wiki/Installing-Neovim
+  - garmin-express
+  - 1password
+
+downloads:
+   zwift:
+     name: Zwift
+     url: http://cdn.zwift.com/app/ZwiftOSX.dmg
+     dest: /Users/wgillmer/Downloads/ZwiftOSX.dmg
+   suuntolink:
+     name: Suunto Movescount link
+     url: http://suuntolink.static.movescount.com/Suuntolink_installer.dmg
+     dest: /Users/wgillmer/Downloads/Suuntolink_installer.dmg
+

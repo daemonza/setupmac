@@ -1,0 +1,8 @@
+---
+# install development tools
+
+- name: install Go
+  homebrew:
+    name: go
+    state: latest
+
