@@ -28,7 +28,9 @@ echo "==========================================="
 sudo easy_install pip
 sudo easy_install ansible
 
-git clone https://github.com/daemonza/setupmac.git /tmp/
+installdir="/tmp/$RANDOM"
+mkdir $installdir
+git clone https://github.com/daemonza/setupmac.git $installdir 
 if [ ! -d /tmp/setupmac ]; then
     echo "failed to find setupmac."
     echo "git cloned failed"
@@ -37,5 +39,9 @@ else
     cd setupmac
     ansible-playbook -i ./hosts playbook.yml --verbose
 fi
+
+echo "cleaning up..."
+# TODO
+echo "and we are done! Enjoy!"
 
 exit 0
