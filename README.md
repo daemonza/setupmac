@@ -3,49 +3,27 @@
 This is a Ansible(https://www.ansible.com/) playbook to quickly setup 
 a Mac to how I like it.
 
-bootstrap ansible to macbook
-
-Ansible to install homebrew and cask? of bootstrap dit ook?
-
-to install cask :
-brew tap caskroom/cask
-
-cmdline :
-* autojump
-* kubectl
-* helm
-* httpie
-* oh-my-zsh
-    - with my oh-my-zsh configuration 
-
-editors :
-* neovim
-    - with my neovim configuration
-* spacemacs
-    - with my spacemacs configuration
-
-apps :
-* slack
-* chrome
-* iTerm2
-* 1Password
-* zwift
-downloaded to ~Downloads
-* caffeine
-
-development : 
-* docker
-* minikube
-* Go
-  how to handle go path? 
-* vagrant
-
-#### usefull links
-
-https://github.com/geerlingguy/mac-dev-playbook
-https://github.com/adamchainz/mac-ansible
-
-#### uninstall homebrew and everything installed through it.
+To setup run the following command :
 ```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+curl https://raw.githubusercontent.com/daemonza/setupmac/master/start.sh | /bin/bash
+```
+
+The start.sh script installs `pip` and then `ansible` with pip.
+Then git clone this repository and execure the `ansible` playbook which does
+all the heavy lifting of setting your mac.
+
+The playbook use homebrew with cask to install most things. You can see a list of
+what get's installed at [here](https://raw.githubusercontent.com/daemonza/setupmac/master/roles/setup/vars/main.yml). If you want to change the list of applications, clone
+this repository, and edit this file, and run the `start.sh` script.
+
+The applications it cannot install through homebrew get's downloaded to
+`$HOME/Downloads`, it's up to you to install them from the Downloads directory.
+
+
+#### Uninstall
+
+If you want to undo all the changes that `setupmac` did, run 
+
+```
+start.sh uninstall
 ```
