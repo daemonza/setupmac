@@ -5,7 +5,7 @@ a Mac to how I like it.
 
 To setup run the following command :
 ```
-curl https://raw.githubusercontent.com/daemonza/setupmac/master/start.sh | /bin/bash
+curl -s https://raw.githubusercontent.com/daemonza/setupmac/master/start.sh | /bin/bash
 ```
 
 The start.sh script installs `pip` and then `ansible` with pip.

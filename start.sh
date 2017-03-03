@@ -4,7 +4,7 @@
 function uninstall {
 
 echo "WARNING : This will remove homebrew and all applications installed through it"
-echo "are you sure you want to do that? [y/n]"
+echo -n "are you sure you want to do that? [y/n] : "
 read confirmation
 
 if [ $confirmation == "y" ]; then
@@ -42,7 +42,9 @@ else
 fi
 
 echo "cleaning up..."
-# TODO
+
+rm -Rfv /tmp/$installdir
+
 echo "and we are done! Enjoy!"
 
 exit 0

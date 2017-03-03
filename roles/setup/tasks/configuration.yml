@@ -1,0 +1,16 @@
+- name: setting up zsh with oh-my-zsh 
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: "{{general.local_home}}/.oh_my_zsh"
+
+# - name: setting up spacemacs 
+#   git:
+#     repo: https://github.com/syl20bnr/spacemacs
+#     dest: "{{general.local_home}}/.emacs.d"
+
+
+# - name: setting up neovim
+#   debug:
+#     msg: "setting up neovim"
+
+
