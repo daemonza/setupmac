@@ -1,6 +1,6 @@
 ### Setupmac
 
-This is a Ansible(https://www.ansible.com/) playbook to quickly setup 
+This is a [Ansible](https://www.ansible.com/) playbook to quickly setup 
 a Mac to how I like it.
 
 To setup run the following command :
@@ -9,7 +9,7 @@ curl https://raw.githubusercontent.com/daemonza/setupmac/master/start.sh | /bin/
 ```
 
 The start.sh script installs `pip` and then `ansible` with pip.
-Then git clone this repository and execure the `ansible` playbook which does
+Then git clone this repository and execute the `ansible` playbook which does
 all the heavy lifting of setting your mac.
 
 The playbook use homebrew with cask to install most things. You can see a list of
