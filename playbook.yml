@@ -4,16 +4,3 @@
 - hosts: mac 
   roles:
     - setup
-
-
-
-  # - include: tasks/homebrew.yml
-    # - include: tasks/cmdline.yml param={{item}}
-    #   with_items:
-    #     - autojump
-    #     - git
-    #     - tree
-    #     - httpie
-    #     - kubectl
-        
-

@@ -1,8 +1,8 @@
 ---
 # make sure homebrew is installed, update brew and install applications 
 
-# - name: application installs
-#   include: homebrew.yml
+- name: application installs
+  include: homebrew.yml
 
 - name: getting downloads 
   get_url:
