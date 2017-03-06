@@ -9,7 +9,7 @@
 - name: zsh dot file
   copy:
     src: /tmp/dotfiles/dot.zshrc 
-    dest: "{{general.local_home}}/.zshrrc"
+    dest: "{{general.local_home}}/.zshrc"
 
 - name: spacemacs dot file
   copy:
