@@ -6,6 +6,15 @@
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     dest: "{{general.local_home}}/.oh-my-zsh"
 
+- name: setting up zsh with oh-my-zsh
+  git:
+    repo: https://github.com/dracula/zsh.git
+    dest: "{{general.local_home}}/.oh-my-zsh_dracula_theme"
+  file:
+    path: "{{general.local_home}}/.oh-my-zsh_dracula_theme/zsh/dracula.zsh-theme"
+    dest: "{{general.local_home}}/.oh-my-zsh/themes/dracula.zsh-theme"
+    state: link
+
 - name: setting up emacs with spacemacs 
   git:
     repo: https://github.com/syl20bnr/spacemacs
@@ -15,6 +24,8 @@
   file:
     path: "{{general.local_home}}/projects"
     state: directory
+
+- name: create GOPATH directory
   file:
     path: "{{general.local_home}}/projects/go"
     state: directory
