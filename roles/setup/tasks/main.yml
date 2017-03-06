@@ -3,3 +3,6 @@
 
 - name: configuration
   include: configuration.yml
+
+- name: dotfiles
+  include: dotfiles.yml

@@ -1,22 +1,23 @@
 ---
 # doing configuration
 
-- name: getting my dotfiles
-  include: dotfiles.yml
-
 - name: setting up zsh with oh-my-zsh
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
-    dest: "{{general.local_home}}/.oh_my_zsh"
+    dest: "{{general.local_home}}/.oh-my-zsh"
 
 - name: setting up emacs with spacemacs 
   git:
     repo: https://github.com/syl20bnr/spacemacs
     dest: "{{general.local_home}}/.emacs.d"
 
+- name: create projects directories
+  file:
+    path: "{{general.local_home}}/projects"
+    state: directory
+  file:
+    path: "{{general.local_home}}/projects/go"
+    state: directory
 
-# - name: setting up neovim
-#   debug:
-#     msg: "setting up neovim"
 
 
