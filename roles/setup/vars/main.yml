@@ -16,6 +16,7 @@ applications:
   - zsh
   - go
   - vim
+  - hugo
 
 # homebrew cask applications
 cask_applications:
