@@ -12,6 +12,11 @@ The start.sh script installs `pip` and then `ansible` with pip.
 Then git clone this repository and execute the `ansible` playbook which does
 all the heavy lifting of setting your mac.
 
+If you already have ansible installed or prefer running it directly, execure the following :
+```
+ansible-playbook -i ./hosts playbook.yml --verbose
+```
+
 The playbook use homebrew with cask to install most things. You can see a list of
 what get's installed at [here](https://raw.githubusercontent.com/daemonza/setupmac/master/roles/setup/vars/main.yml). If you want to change the list of applications, clone
 this repository, and edit this file, and run the `start.sh` script.

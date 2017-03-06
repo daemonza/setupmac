@@ -17,6 +17,7 @@ applications:
   - go
   - vim
   - hugo
+  - saltstack
 
 # homebrew cask applications
 cask_applications:
