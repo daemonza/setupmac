@@ -6,8 +6,3 @@
     name: "{{item}}"
     state: latest
 
-# - name: install 
-#   homebrew:
-#     name: autojump
-#     state: latest
-

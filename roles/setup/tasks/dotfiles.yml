@@ -15,3 +15,8 @@
   copy:
     src: /tmp/dotfiles/dot.spacemacs
     dest: "{{general.local_home}}/.spacemacs"
+
+- name: clean up /tmp/dotfiles
+  file:
+    path: /tmp/dotfiles
+    state: absent
