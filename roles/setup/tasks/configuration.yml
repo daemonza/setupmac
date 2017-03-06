@@ -13,7 +13,7 @@
 
 - name: sym linking oh-my-zsh theme
   file:
-    src: "{{general.local_home}}/.oh-my-zsh_dracula_theme/zsh/dracula.zsh-theme"
+    src: "{{general.local_home}}/.oh-my-zsh_dracula_theme/dracula.zsh-theme"
     dest: "{{general.local_home}}/.oh-my-zsh/themes/dracula.zsh-theme"
     state: link
 
