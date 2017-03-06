@@ -6,10 +6,12 @@
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     dest: "{{general.local_home}}/.oh-my-zsh"
 
-- name: setting up zsh with oh-my-zsh
+- name: getting dracula theme for oh-my-zsh
   git:
     repo: https://github.com/dracula/zsh.git
     dest: "{{general.local_home}}/.oh-my-zsh_dracula_theme"
+
+- name: sym linking oh-my-zsh theme
   file:
     path: "{{general.local_home}}/.oh-my-zsh_dracula_theme/zsh/dracula.zsh-theme"
     dest: "{{general.local_home}}/.oh-my-zsh/themes/dracula.zsh-theme"
@@ -20,14 +22,14 @@
     repo: https://github.com/syl20bnr/spacemacs
     dest: "{{general.local_home}}/.emacs.d"
 
-- name: create projects directories
+- name: create workspace directories
   file:
-    path: "{{general.local_home}}/projects"
+    path: "{{general.local_home}}/workspace"
     state: directory
 
 - name: create GOPATH directory
   file:
-    path: "{{general.local_home}}/projects/go"
+    path: "{{general.local_home}}/workspace/go"
     state: directory
 
 
