@@ -1,0 +1,17 @@
+---
+# getting my dotfile configuration
+
+- name: setting up my dotfiles
+  git:
+    repo: https://github.com/daemonza/dotfiles.git
+    dest: /tmp/dotfiles/
+
+- name: zsh dot file
+  copy:
+    src: /tmp/dotfiles/dot.zshrc 
+    dest: "{{general.local_home}}/.zshrrc"
+
+- name: spacemacs dot file
+  copy:
+    src: /tmp/dotfiles/dot.spacemacs
+    dest: "{{general.local_home}}/.spacemacs"
