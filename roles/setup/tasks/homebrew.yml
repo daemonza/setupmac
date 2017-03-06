@@ -1,23 +1,16 @@
 ---
 # install and update homebrew and cask
 
-- name: check if we need to install homebrew
-  stat:
-    path: '/usr/local/bin/brew'
-  register: brewinstall
-
 - name: install homebrew
   shell: 'yes | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"' 
-  when: not brewinstall.stat.exists
+  args:
+    creates: /usr/local/bin/brew
 
 - name: ensure homebrew is updated 
   homebrew:
     state: latest
     update_homebrew: yes
-  when: brewinstall.stat.exists
 
 - name: tap homebrew caskroom/cask
   homebrew_tap:
     tap: "caskroom/cask"
-  when: brewinstall.stat.exists
-
