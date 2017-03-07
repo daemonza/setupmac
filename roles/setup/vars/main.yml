@@ -19,6 +19,8 @@ applications:
   - hugo
   - saltstack
   - neovim
+  - ag 
+  - ctags
 
 # homebrew cask applications
 cask_applications:
@@ -33,6 +35,7 @@ cask_applications:
   - garmin-express
   - 1password
   - alfred
+  - virtualbox
 
 downloads:
    zwift:
