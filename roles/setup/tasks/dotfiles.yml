@@ -16,6 +16,22 @@
     src: /tmp/dotfiles/dot.spacemacs
     dest: "{{general.local_home}}/.spacemacs"
 
+- name: ensure that neovim configuration directory exists
+  file:
+    path: "{{general.local_home}}/.config/nvim"
+    state: directory
+    
+- name: verify $HOME/.config/nvim dir is there    
+  stat:
+    path: "{{general.local_home}}/.config/nvim"
+  register: configdir
+
+- name: neovim configuration 
+  copy:
+    src: /tmp/dotfiles/init.vim
+    dest: "{{general.local_home}}/.config/nvim"
+  when: configdir.stat.exists
+
 - name: clean up /tmp/dotfiles
   file:
     path: /tmp/dotfiles

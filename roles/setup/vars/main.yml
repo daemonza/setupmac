@@ -18,6 +18,7 @@ applications:
   - vim
   - hugo
   - saltstack
+  - neovim
 
 # homebrew cask applications
 cask_applications:
