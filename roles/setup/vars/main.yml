@@ -38,6 +38,7 @@ cask_applications:
   - alfred
   - virtualbox
   - spotify
+  - steam
 
 downloads:
    zwift:
