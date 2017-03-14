@@ -21,6 +21,7 @@ applications:
   - neovim
   - ag 
   - ctags
+  - terraform
 
 # homebrew cask applications
 cask_applications:
@@ -36,6 +37,7 @@ cask_applications:
   - 1password
   - alfred
   - virtualbox
+  - spotify
 
 downloads:
    zwift:
