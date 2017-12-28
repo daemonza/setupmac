@@ -5,18 +5,30 @@ general:
 
 # homebrew applications
 applications:
+  # shell utils
   - autojump
-  - git
+  - zsh
   - tree
   - httpie
   - curl
   - wget
-  - zsh
-  - go
+  - ctags
+  - tmux
+  - ag
+  - fzf
+  - git
+  - git-lfs
+  - tig
+
+  # editor
   - vim
   - neovim
-  - ag
-  - ctags
+
+  # lang
+  - go
+  - rbenv
+  - pyenv
+  - pyenv-virtualenv
 
 # homebrew cask applications
 cask_applications:
