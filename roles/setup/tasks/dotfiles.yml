@@ -3,34 +3,13 @@
 
 - name: setting up my dotfiles
   git:
-    repo: https://github.com/daemonza/dotfiles.git
+    repo: https://github.com/douglasroeder/dotfiles.git
     dest: /tmp/dotfiles/
-
-- name: zsh dot file
-  copy:
-    src: /tmp/dotfiles/dot.zshrc 
-    dest: "{{general.local_home}}/.zshrc"
 
 - name: spacemacs dot file
   copy:
-    src: /tmp/dotfiles/dot.spacemacs
+    src: /tmp/dotfiles/spacemacs
     dest: "{{general.local_home}}/.spacemacs"
-
-- name: ensure that neovim configuration directory exists
-  file:
-    path: "{{general.local_home}}/.config/nvim"
-    state: directory
-    
-- name: verify $HOME/.config/nvim dir is there    
-  stat:
-    path: "{{general.local_home}}/.config/nvim"
-  register: configdir
-
-- name: neovim configuration 
-  copy:
-    src: /tmp/dotfiles/init.vim
-    dest: "{{general.local_home}}/.config/nvim"
-  when: configdir.stat.exists
 
 - name: clean up /tmp/dotfiles
   file:

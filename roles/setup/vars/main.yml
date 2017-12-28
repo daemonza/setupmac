@@ -11,34 +11,26 @@ applications:
   - httpie
   - curl
   - wget
-  - kubectl
-  - kubernetes-helm
   - zsh
   - go
   - vim
-  - hugo
-  - saltstack
   - neovim
-  - ag 
+  - ag
   - ctags
-  - terraform
 
 # homebrew cask applications
 cask_applications:
   - google-chrome
+  - firefoxdeveloperedition
   - slack
   - iterm2
-  - caffeine
   - docker
-  - minikube
   - vagrant
   - emacs
-  - garmin-express
   - 1password
-  - alfred
   - virtualbox
   - spotify
-  - steam
+  - sublime-text
 
 downloads:
    zwift:
@@ -49,4 +41,3 @@ downloads:
      name: Suunto Movescount link
      url: http://suuntolink.static.movescount.com/Suuntolink_installer.dmg
      dest: "{{general.local_home}}/Downloads/Suuntolink_installer.dmg"
-
