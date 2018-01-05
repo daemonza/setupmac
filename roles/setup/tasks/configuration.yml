@@ -22,7 +22,7 @@
     repo: https://github.com/syl20bnr/spacemacs
     dest: "{{general.local_home}}/.emacs.d"
 
-- name: create workspace directories
+- name: create work directories
   file:
     path: "{{general.work_dir}}"
     state: directory
