@@ -24,10 +24,10 @@
 
 - name: create workspace directories
   file:
-    path: "{{general.local_home}}/workspace"
+    path: "{{general.work_dir}}"
     state: directory
 
 - name: create GOPATH directory
   file:
-    path: "{{general.local_home}}/workspace/go"
+    path: "{{general.work_dir}}/go"
     state: directory

@@ -2,6 +2,7 @@
 # list of applications to install
 general:
   local_home: "{{ lookup('env','HOME') }}"
+  work_dir: "{{ local_home }}/Work"
 
 # homebrew applications
 applications:
