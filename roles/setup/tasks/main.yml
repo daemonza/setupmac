@@ -1,8 +1,11 @@
 - name: application installs
-  include: apps.yml 
+  include_tasks: apps.yml
 
 - name: configuration
-  include: configuration.yml
+  include_tasks: configuration.yml
 
 - name: dotfiles
-  include: dotfiles.yml
+  include_tasks: dotfiles.yml
+
+- name: scm-breeze
+  include_tasks: scm-breeze.yml

@@ -1,0 +1,10 @@
+---
+# getting scm_breeze
+
+- name: cloning scm-breeze
+  git:
+    repo: https://github.com/scmbreeze/scm_breeze.git
+    dest: "{{general.local_home}}/.scm_breeze"
+
+- name: installing scm-breeze
+  command: "{{general.local_home}}/.scm_breeze/install.sh"
