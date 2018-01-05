@@ -1,0 +1,227 @@
+;; -*- mode: emacs-lisp -*-
+;; This file is loaded by Spacemacs at startup.
+;; It must be stored in your home directory.
+
+(defun dotspacemacs/layers ()
+  "Configuration Layers declaration.
+You should not put any user code in this function besides modifying the variable
+values."
+  (setq-default
+   ;; Base distribution to use. This is a layer contained in the directory
+   ;; `+distribution'. For now available distributions are `spacemacs-base'
+   ;; or `spacemacs'. (default 'spacemacs)
+   dotspacemacs-distribution 'spacemacs
+   ;; List of additional paths where to look for configuration layers.
+   ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
+   dotspacemacs-configuration-layer-path '()
+   ;; List of configuration layers to load. If it is the symbol `all' instead
+   ;; of a list then all discovered layers will be installed.
+   dotspacemacs-configuration-layers
+   '(
+     sql
+     ansible
+     (auto-completion :variables
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-enable-snippets-in-popup t)
+     better-defaults
+     emacs-lisp
+     git
+     github
+     ivy
+     html
+     osx
+     javascript
+     react
+     markdown
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom
+            shell-default-shell 'multi-term)
+     ;; spell-checking
+     ;; (syntax-checking :variables
+     ;;                  syntax-checking-enable-tooltips nil)
+     version-control
+     yaml
+     csv
+     colors
+     themes-megapack
+     ruby-on-rails
+     go
+     ;; (go :variables gofmt-command "goimports")
+     extra-langs
+     editorconfig
+     restclient
+     (python :variables
+             python-enable-yapf-format-on-save t)
+     (ruby :variables
+           ruby-version-manager 'rbenv
+           ruby-test-runner '"bundle exec rspec"
+           ruby-enable-ruby-on-rails-support t)
+     )
+   ;; List of additional packages that will be installed without being
+   ;; wrapped in a layer. If you need some configuration for these
+   ;; packages, then consider creating a layer. You can also put the
+   ;; configuration in `dotspacemacs/user-config'.
+   dotspacemacs-additional-packages
+   '(
+     all-the-icons
+     doom-themes
+     solaire-mode
+     gorepl-mode
+     ;; rjsx-mode
+     ;; prettier-js
+     ;; eslintd-fix
+   )
+   ;; A list of packages and/or extensions that will not be install and loaded.
+   dotspacemacs-excluded-packages '()
+   ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
+   ;; are declared in a layer which is not a member of
+   ;; the list `dotspacemacs-configuration-layers'. (default t)
+   dotspacemacs-delete-orphan-packages t))
+
+(defun dotspacemacs/init ()
+  (setq-default
+   dotspacemacs-elpa-https t
+   dotspacemacs-elpa-timeout 5
+   dotspacemacs-check-for-update nil
+   dotspacemacs-editing-style 'vim
+   dotspacemacs-verbose-loading nil
+   dotspacemacs-startup-banner nil
+   dotspacemacs-startup-lists '(recents projects)
+   dotspacemacs-startup-recent-list-size 5
+   dotspacemacs-scratch-mode 'text-mode
+   dotspacemacs-themes '(doom-one spacemacs-dark spacemacs-light)
+   dotspacemacs-colorize-cursor-according-to-state t
+   dotspacemacs-default-font '("Hack"
+                               :size 14
+                               :height 16
+                               :weight normal
+                               :width normal
+                               :powerline-scale 1.1)
+   dotspacemacs-leader-key "SPC"
+   dotspacemacs-emacs-leader-key "M-m"
+   dotspacemacs-major-mode-leader-key ","
+   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
+   dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-command-key ":"
+   dotspacemacs-remap-Y-to-y$ t
+   dotspacemacs-default-layout-name "Default"
+   dotspacemacs-display-default-layout nil
+   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-save-file-location 'cache
+   dotspacemacs-max-rollback-slots 5
+   dotspacemacs-use-ido nil
+   dotspacemacs-helm-resize nil
+   dotspacemacs-helm-no-header nil
+   dotspacemacs-helm-position 'bottom
+   dotspacemacs-enable-paste-micro-state nil
+   dotspacemacs-which-key-delay 0.4
+   dotspacemacs-which-key-position 'bottom
+   dotspacemacs-loading-progress-bar t
+   dotspacemacs-fullscreen-at-startup nil
+   dotspacemacs-fullscreen-use-non-native nil
+   dotspacemacs-maximized-at-startup t
+   dotspacemacs-active-transparency 90
+   dotspacemacs-inactive-transparency 90
+   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-smooth-scrolling t
+   dotspacemacs-line-numbers t
+   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-highlight-delimiters 'all
+   dotspacemacs-persistent-server nil
+   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
+   dotspacemacs-default-package-repository nil
+   dotspacemacs-whitespace-cleanup 'all
+   js2-basic-offset 2
+   js-indent-level 2
+   ))
+
+(defun dotspacemacs/user-init ()
+  (setq frame-resize-pixelwise t)
+  (setq custom-file "~/.spacemacs.custom")
+  (setq exec-path-from-shell-arguments '("-l"))
+  (setq rspec-use-bundler-when-possible nil)
+  ;; (setq exec-path (append exec-path '("/usr/local/bin")))
+  (setq exec-path (append '("~/.rbenv/shims" "/usr/local/bin") exec-path))
+  (setq js2-include-node-externs t)
+
+  ;; JAVASCRIPT
+  (setq-default
+   ;; js2-mode
+   js2-basic-offset 2
+   js-indent-level 2
+   ;; web-mode
+   css-indent-offset 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-attr-indent-offset 2)
+  )
+
+(defun load-doom-theme ()
+  (require 'doom-themes)
+  (load-theme 'doom-one t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-neotree-config)
+  (setq doom-neotree-file-icons t)
+  )
+
+(defun setup-solaire-mode ()
+  (require 'solaire-mode)
+  (add-hook 'after-change-major-mode-hook #'turn-on-solaire-mode)
+  (add-hook 'after-revert-hook #'turn-on-solaire-mode)
+  (add-hook 'minibuffer-setup-hook #'solaire-mode-in-minibuffer)
+  (add-hook 'ediff-prepare-buffer-hook #'solaire-mode)
+  )
+
+(add-hook 'go-mode-hook #'gorepl-mode)
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+
+(defun dotspacemacs/user-config ()
+  (setq multi-term-program "/bin/zsh")
+
+  ;; Had to add this line to fix global search, apparently Developer branch is working fine
+  (spacemacs/set-leader-keys (kbd "/") 'counsel-projectile-ag)
+
+  (with-eval-after-load 'company
+    (add-to-list 'company-backends 'company-elm))
+
+  ;; elm auto-format on save
+  (setq elm-format-on-save t)
+
+  ;; dom-theme and solaire
+  (when (display-graphic-p)
+    (load-doom-theme)
+    (setup-solaire-mode)
+    )
+
+  (with-eval-after-load 'rspec-mode
+    (defun rspec-runner ()
+      "Return command line to run rspec."
+      (let ((bundle-command (if (rspec-bundle-p) "bundle exec " ""))
+            (spring-command (if (rspec-spring-p) "bin/spring " nil)))
+        (concat (or spring-command bundle-command)
+                (if (rspec-rake-p)
+                    (concat rspec-rake-command " spec")
+                  rspec-spec-command)))))
+
+  ;; Fix dired buffer issues
+  (setq persp-set-frame-buffer-predicate nil)
+  (setq persp-when-kill-switch-to-buffer-in-perspective nil)
+  (setq persp-add-buffer-on-after-change-major-mode t)
+
+  ;; Random things to hopefully prevent crashing
+  (setq dotspacemacs-mode-line-unicode-symbols nil)
+  (setq ediff-window-setup-function 'ediff-setup-windows-default)
+
+  ;; js
+  ;; (add-hook 'js2-mode-hook 'prettier-js-mode)
+  ;; (add-hook 'web-mode-hook 'prettier-js-mode)
+  ;; (add-hook 'js2-mode-hook 'eslintd-fix-mode)
+  ;; (add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
+  ;; (setq
+  ;;  prettier-js-args '(
+  ;;                     "--trailing-comma" "all"
+  ;;                     "--bracket-spacing" "false"))
+
+  )

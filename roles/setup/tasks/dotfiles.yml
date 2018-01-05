@@ -1,17 +1,12 @@
 ---
 # getting my dotfile configuration
 
-- name: setting up my dotfiles
-  git:
-    repo: https://github.com/douglasroeder/dotfiles.git
-    dest: /tmp/dotfiles/
-
 - name: spacemacs dot file
   copy:
-    src: /tmp/dotfiles/spacemacs
+    src: dotfiles/spacemacs
     dest: "{{general.local_home}}/.spacemacs"
 
-- name: clean up /tmp/dotfiles
-  file:
-    path: /tmp/dotfiles
-    state: absent
+- name: tmux dot file
+  copy:
+    src: dotfiles/tmux.conf
+    dest: "{{general.local_home}}/.tmux.conf"
